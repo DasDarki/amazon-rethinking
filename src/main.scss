@@ -1,0 +1,23 @@
+﻿$color_nav: #131921;
+$color_nav_secondary: #232F3E;
+$color_bg: #FFFFFF;
+$color_primary: #FEBD69;
+$color_primary_hover: #F3A847;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  background-color: $color_primary;
+  color: $color_bg;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+      background-color: $color_primary_hover;
+  }
+}
