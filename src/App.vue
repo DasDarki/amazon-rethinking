@@ -30,6 +30,8 @@ const searchText = ref('');
           <i class="fa-solid fa-search"></i>
         </button>
       </div>
+
+      <span style="margin-left: auto; user-select: none">Privacy Settings</span>
     </nav>
 
     <main>
