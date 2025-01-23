@@ -4,6 +4,7 @@ import router from "@/router";
 import {ref} from "vue";
 
 const searchText = ref('');
+const showPrivacyDropdown = ref(false);
 </script>
 
 <template>
@@ -31,7 +32,16 @@ const searchText = ref('');
         </button>
       </div>
 
-      <span style="margin-left: auto; user-select: none">Privacy Settings</span>
+      <div style="margin-left: auto; position: relative; user-select: none; cursor: pointer">
+        <span @click="showPrivacyDropdown = !showPrivacyDropdown">Privacy Settings</span>
+
+        <div v-if="showPrivacyDropdown" class="privacy-dropdown" @click="showPrivacyDropdown = false" @mouseleave="showPrivacyDropdown = false">
+          <span>Privacy Policy</span>
+          <span>View User Data</span>
+          <span>Download User Data</span>
+          <span style="color: red">Delete User Data</span>
+        </div>
+      </div>
     </nav>
 
     <main>
@@ -108,6 +118,18 @@ const searchText = ref('');
       }
       &:has(> input:focus) {
         border: 2px solid main.$color_primary;
+      }
+    }
+
+    .privacy-dropdown {
+      position: absolute; top: 2rem; right: 0; background: #131921; border: 1px solid #000; border-radius: 0.5rem; padding: 0.5rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; width: 10rem; text-align: right; box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+      span {
+        color: #fff;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
     }
   }
